@@ -14,7 +14,8 @@ exports.create = (req, res) => {
         name: req.body.name,
         owner: req.body.owner || "Michi",
         color: req.body.color,
-        age: req.body.age || 0
+        age: req.body.age || 0,
+        look: req.body.look || "normal"
     });
 
     // Save Cat in the database
