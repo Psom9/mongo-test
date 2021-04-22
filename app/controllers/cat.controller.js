@@ -77,6 +77,8 @@ exports.update = (req, res) => {
         name: req.body.name,
         owner: req.body.owner || "Michi",
         color: req.body.color
+        age: req.body.age || 0
+        look: req.body.look || "normal"
     }, {new: true})
         .then(Cat => {
             if(!Cat) {
@@ -118,3 +120,4 @@ exports.delete = (req, res) => {
         });
     });
 };
+
