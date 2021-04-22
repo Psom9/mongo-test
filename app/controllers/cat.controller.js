@@ -123,7 +123,7 @@ exports.delete = (req, res) => {
 
 // Count cats
 exports.count = (req, res) => {
-    Cat.count()
+    Cat.findByIdAndCount (req.params.catId)
         .then(count => res.json (count)
         )
         .catch(err => {
