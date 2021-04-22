@@ -134,8 +134,8 @@ exports.count = (req, res) => {
 };
 
 // List cats name
-getList = (req, res) => {
-    cat.find({}, this.name)
+exports.getList = (req, res) => {
+    Cat.find ({}, this.name)
         .then(l => res.json(l))
         .catch(err => res.status(500).json({message: err}));
 }
