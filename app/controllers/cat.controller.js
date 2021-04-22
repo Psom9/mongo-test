@@ -13,7 +13,7 @@ exports.create = (req, res) => {
     const cat = new Cat({
         name: req.body.name,
         owner: req.body.owner || "Michi",
-        color: req.body.color
+        color: req.body.color,
         age: req.body.age || 0
     });
 
