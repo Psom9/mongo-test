@@ -15,5 +15,5 @@ module.exports = (app) => {
 
     // Delete a Cat with catId
     app.delete('/cat/:catId', cat.delete);
-    
+
 }

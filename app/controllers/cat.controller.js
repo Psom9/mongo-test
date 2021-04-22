@@ -76,8 +76,8 @@ exports.update = (req, res) => {
     Cat.findByIdAndUpdate(req.params.catId, {
         name: req.body.name,
         owner: req.body.owner || "Michi",
-        color: req.body.color
-        age: req.body.age || 0
+        color: req.body.color,
+        age: req.body.age || 0,
         look: req.body.look || "normal"
     }, {new: true})
         .then(Cat => {
