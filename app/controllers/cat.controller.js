@@ -126,7 +126,7 @@ exports.countAll = (req, res) => {
     Cat.find()
         .then(cats => {
             (cat.count = Object.keys(cat).length)
-            
+
             res.send(count);
         }).catch(err => {
         res.status(500).send({
