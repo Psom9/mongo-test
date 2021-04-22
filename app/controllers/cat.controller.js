@@ -121,3 +121,22 @@ exports.delete = (req, res) => {
     });
 };
 
+// Count properties
+exports.count = (req, res) => {
+        Cat.findById(req.params.catId)
+            .then(cat => {
+                let count = 0;
+                for ( var c in cat);
+
+                    count = count + 1;
+
+                    res.send(count);
+            }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while counting cats."
+            });
+        });
+    };
+
+
+
