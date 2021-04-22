@@ -124,18 +124,14 @@ exports.delete = (req, res) => {
 // Count cats
 exports.count = (req, res) => {
     Cat.count({})
-        .then(count => res.json (count)
+        .then(count => res.json(count)
         )
-        .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred while counting cats."
-        });
-    });
-};
+        .catch(err => res.status(500).json({message: err}));
+        }
 
 // List cats name
 exports.getList = (req, res) => {
-    Cat.find ({}, this.name)
+    Cat.find ({}, cat.name)
         .then(l => res.json(l))
         .catch(err => res.status(500).json({message: err}));
 }
