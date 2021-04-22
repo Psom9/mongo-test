@@ -18,4 +18,7 @@ module.exports = (app) => {
 
     //Count
     app.get('/cat/:count', cat.count);
+
+    //List
+    app.get('/cat/:list', cat.getList);
 }
