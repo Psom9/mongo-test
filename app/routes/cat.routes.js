@@ -17,5 +17,5 @@ module.exports = (app) => {
     app.delete('/cat/:catId', cat.delete);
 
     //Count
-    app.get('/cat/:count', cat.countAll);
+    app.get('/cat/:count', cat.count);
 }

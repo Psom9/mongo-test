@@ -122,13 +122,11 @@ exports.delete = (req, res) => {
 };
 
 // Count cats
-exports.countAll = (req, res) => {
-    Cat.find()
-        .then(cats => {
-            (cat.count = Object.keys(cat).length)
-
-            res.send(count);
-        }).catch(err => {
+exports.count = (req, res) => {
+    Cat.count()
+        .then(count => res.json (count)
+        )
+        .catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while counting cats."
         });
