@@ -17,8 +17,8 @@ module.exports = (app) => {
     app.delete('/cat/:catId', cat.delete);
 
     //Count cats
-    app.get('/cat/count', cat.count);
+    app.get('/cat', cat.count);
 
     //List of names
-    app.get('/cat/list', cat.getList);
+    app.get('/cat', cat.getList);
 }
