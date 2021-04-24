@@ -43,14 +43,6 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Count all cats
-exports.count = (req, res) => {
-    Cat.count({})
-        .then(count => res.json(count)
-        )
-        .catch(err => res.status(500).json({message: err}));
-}
-
 // Find a single cat with a catId
 exports.findOne = (req, res) => {
     Cat.findById(req.params.catId)
@@ -130,6 +122,14 @@ exports.delete = (req, res) => {
         });
     });
 };
+
+// Count all cats
+exports.count = (req, res) => {
+    Cat.count({})
+        .then(count => res.json(count)
+        )
+        .catch(err => res.status(500).json({message: err}));
+}
 
 // List cats name
 exports.getList = (req, res) => {

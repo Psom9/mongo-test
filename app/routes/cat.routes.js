@@ -1,6 +1,12 @@
 module.exports = (app) => {
     const cat = require('../controllers/cat.controller.js');
 
+    //Count cats
+    app.get('/cat/count', cat.count);
+
+    //List of names
+    app.get('/cat/list' , cat.getList);
+
     // Create a new Cat
     app.post('/cat', cat.create);
 
@@ -16,9 +22,5 @@ module.exports = (app) => {
     // Delete a Cat with catId
     app.delete('/cat/:catId', cat.delete);
 
-    //Count cats
-    app.get('/cat/count', cat.count);
 
-    //List of names
-    app.get('/cat', cat.getList);
 }
