@@ -135,7 +135,6 @@ exports.count = (req, res) => {
 exports.getList = (req, res) => {
     Cat.find()
         .then(cats => {
-            res.send(cats.name);})
+            res.send(cat.name);})
                 .catch(err => res.status(500).json({message: err}));
 }
-
