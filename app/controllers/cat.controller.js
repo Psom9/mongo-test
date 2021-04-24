@@ -1,33 +1,20 @@
 const Cat = require('../models/cat.model.js');
 
-// Count cats
-exports.count = (req, res) => {
-    Cat.count({})
-        .then(count => res.json(count)
-        )
-        .catch(err => res.status(500).json({message: err}));
-}
 
-// List cats name
-exports.getList = (req, res) => {
-    Cat.find ({}, cat.name)
-        .then(l => res.json(l))
-        .catch(err => res.status(500).json({message: err}));
-}
 
 // Create and Save a new Cat
 exports.create = (req, res) => {
     // Validate request
     if(!req.body.name || !req.body.color) {
         return res.status(400).send({
-            message: "Cat needs: name, color"
+            message: "Cat needs: name, color, age, look"
         });
     }
 
     // Create a Cat
     const cat = new Cat({
         name: req.body.name,
-        owner: req.body.owner || "Michi",
+        owner: req.body.owner || "CatShelter",
         color: req.body.color,
         age: req.body.age || 0,
         look: req.body.look || "normal"
@@ -56,6 +43,14 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Count all cats
+exports.count = (req, res) => {
+    Cat.count({})
+        .then(count => res.json(count)
+        )
+        .catch(err => res.status(500).json({message: err}));
+}
+
 // Find a single cat with a catId
 exports.findOne = (req, res) => {
     Cat.findById(req.params.catId)
@@ -83,7 +78,7 @@ exports.update = (req, res) => {
     // Validate Request
     if(!req.body.name || !req.body.color) {
         return res.status(400).send({
-            message: "Cat needs: name, color"
+            message: "Cat needs: name, color, age, look"
         });
     }
 
@@ -136,7 +131,12 @@ exports.delete = (req, res) => {
     });
 };
 
-
+// List cats name
+exports.getList = (req, res) => {
+    Cat.find ({}, cat.name)
+        .then(l => res.json(l))
+        .catch(err => res.status(500).json({message: err}));
+}
 
 
 
