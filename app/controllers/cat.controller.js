@@ -1,5 +1,20 @@
 const Cat = require('../models/cat.model.js');
 
+// Count cats
+exports.count = (req, res) => {
+    Cat.count({})
+        .then(count => res.json(count)
+        )
+        .catch(err => res.status(500).json({message: err}));
+}
+
+// List cats name
+exports.getList = (req, res) => {
+    Cat.find ({}, cat.name)
+        .then(l => res.json(l))
+        .catch(err => res.status(500).json({message: err}));
+}
+
 // Create and Save a new Cat
 exports.create = (req, res) => {
     // Validate request
@@ -121,20 +136,7 @@ exports.delete = (req, res) => {
     });
 };
 
-// Count cats
-exports.count = (req, res) => {
-    Cat.count({})
-        .then(count => res.json(count)
-        )
-        .catch(err => res.status(500).json({message: err}));
-        }
 
-// List cats name
-exports.getList = (req, res) => {
-    Cat.find ({}, cat.name)
-        .then(l => res.json(l))
-        .catch(err => res.status(500).json({message: err}));
-}
 
 
 
