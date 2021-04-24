@@ -136,7 +136,7 @@ exports.getList = async (req, res) => {
     Let
     abc = await Cat.find({})
         .then(cats => {
-            res.send(cats);
+            res.send(cat.names);
         })
         .catch(err => res.status(500).json({message: err}));
 }
