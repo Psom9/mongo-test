@@ -138,7 +138,7 @@ exports.getList = (req, res) => {
             res.send(cats);
         }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occurred while retrieving cats."
+            message: err.message || "Some error occurred while listing cats."
         });
     });
 };
