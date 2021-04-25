@@ -132,13 +132,13 @@ exports.count = (req, res) => {
 }
 
 // Get list of cat names
-exports.getList = async (req, res) => {
-    Let
-    abc = await Cat.find({})
+exports.getList = (req, res) => {
+    Cat.find().select('name')
         .then(cats => {
-            res.send(cat.names);
-        })
-        .catch(err => res.status(500).json({message: err}));
-}
-
-
+            res.send(cats);
+        }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving cats."
+        });
+    });
+};
